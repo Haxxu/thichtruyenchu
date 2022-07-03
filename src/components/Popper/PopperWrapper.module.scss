@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 100px;
+    max-height: min((100vh - 96px) - 60px, 734px);
+    padding-top: 8px;
+
+    color: var(--text-color);
+    background-color: var(--white);
+
+    -webkit-box-shadow: 0 10px 15px 0 rgb(0 0 0 / 12%);
+    -moz-box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.12);
+}

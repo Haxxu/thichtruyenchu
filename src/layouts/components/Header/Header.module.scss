@@ -46,11 +46,33 @@
     display: flex;
     width: 48px;
     height: 48px;
+    margin-right: 1.5rem;
 }
 
 .menu-items {
     display: flex;
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
+    width: 500px;
+    padding: 12px 24px;
+    position: relative;
+    margin-top: -8px;
+
+    &::after {
+        position: absolute;
+        content: '';
+        top: -25px;
+        left: 40px;
+        border: 15px solid var(--white);
+        border-color: transparent transparent var(--white) transparent;
+    }
+}
+
+.memu-item {
+    display: flex;
+    width: 226px;
+    height: 36px;
+    font-size: 1.6rem;
+
+    &:hover {
+        color: var(--hover-text-color);
+    }
 }
