@@ -1,3 +1,34 @@
 .wrapper {
-    font-size: 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: var(--main-layout-header-height);
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: var(--main-layout-width);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    width: 50px;
+    height: 50px;
 }
