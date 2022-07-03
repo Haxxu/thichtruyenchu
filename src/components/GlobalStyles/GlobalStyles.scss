@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
 
 :root {
+    --primary: #f7f5f0;
+    --text-color: #333;
+
     --main-layout-width: 1200px;
     --main-layout-header-height: 72px;
 
@@ -23,4 +26,9 @@ body {
     font-size: 1.5rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
 }
