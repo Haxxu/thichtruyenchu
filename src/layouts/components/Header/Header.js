@@ -110,8 +110,8 @@ function Header() {
                                     <Container>
                                         <Row>
                                             {genresMenu.map((genre, index) => (
-                                                <Col sm={6}>
-                                                    <Link to={genre.to} className={cx('memu-item')} key={index}>
+                                                <Col sm={6} key={index}>
+                                                    <Link to={genre.to} className={cx('memu-item')}>
                                                         {genre.title}
                                                     </Link>
                                                 </Col>
@@ -137,8 +137,8 @@ function Header() {
                                     <Container>
                                         <Row>
                                             {rankingMenu.map((item, index) => (
-                                                <Col sm={6}>
-                                                    <Link to={item.to} className={cx('memu-item')} key={index}>
+                                                <Col sm={6} key={index}>
+                                                    <Link to={item.to} className={cx('memu-item')}>
                                                         {item.title}
                                                     </Link>
                                                 </Col>
