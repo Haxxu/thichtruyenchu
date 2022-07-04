@@ -1,8 +1,9 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-import { AiOutlineMenu } from 'react-icons/ai';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Container, Row, Col } from 'react-grid-system';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { GrUploadOption } from 'react-icons/gr';
 import 'tippy.js/dist/tippy.css';
 
 import config from '~/config';
@@ -156,9 +157,12 @@ function Header() {
                 </div>
                 <Search />
                 <div className={cx('actions')}>
-                    <button>Đăng truyện</button>
-                    <button>Đăng nhập</button>
-                    <button>Đăng ký</button>
+                    <div className={cx('action-upload', 'action')}>
+                        <GrUploadOption size={13} className={cx('action-upload-icon')} />
+                        <Link to={config.routes.upload}>Đăng truyện</Link>
+                    </div>
+                    <div className={cx('action-login', 'action')}>Đăng nhập</div>
+                    <div className={cx('action-register', 'action')}>Đăng ký</div>
                 </div>
             </div>
         </header>

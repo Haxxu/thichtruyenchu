@@ -5,6 +5,7 @@ import config from '~/config';
 import Home from '~/pages/Home';
 import Search from '~/pages/Search';
 import Ranking from '~/pages/Ranking';
+import Upload from '~/pages/Upload';
 
 // Public routes
 const publicRoutes = [
@@ -19,6 +20,10 @@ const publicRoutes = [
     {
         path: config.routes.ranking,
         component: Ranking,
+    },
+    {
+        path: config.routes.upload,
+        component: Upload,
     },
 ];
 

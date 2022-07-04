@@ -16,6 +16,7 @@
     align-items: center;
     height: 100%;
     width: var(--main-layout-width);
+    padding: 0 16px;
 }
 
 .nav {
@@ -75,4 +76,40 @@
     &:hover {
         color: var(--hover-text-color);
     }
+}
+
+// Actions
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.action {
+    height: 40px;
+    padding: 8px 16px;
+    cursor: pointer;
+
+    &:hover,
+    &:hover a {
+        color: var(--hover-text-color);
+    }
+
+    &:hover svg path {
+        stroke: var(--hover-text-color);
+    }
+}
+
+.action-upload {
+    display: flex;
+    align-items: center;
+    padding: 8px 32px 8px 16px;
+}
+
+.action-upload-icon {
+    margin-right: 8px;
+    color: var(--hover-text-color);
 }

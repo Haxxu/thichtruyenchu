@@ -1,34 +1,16 @@
-import { useState, useRef } from 'react';
 import classNames from 'classnames/bind';
-import { FiSearch } from 'react-icons/fi';
-import { MdOutlineClear } from 'react-icons/md';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
+import { FiSearch } from 'react-icons/fi';
 
+import Input from '~/components/Input';
 import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
 
 function Search() {
-    const [searchValue, setSearchValue] = useState('');
-
-    const inputRef = useRef();
-
-    const handleChange = (e) => {
-        setSearchValue(e.target.value);
-    };
-
-    const handleClear = () => {
-        setSearchValue('');
-        inputRef.current.focus();
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
-
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('search')}>
             <HeadlessTippy
                 interactive
                 visible={false}
@@ -38,24 +20,12 @@ function Search() {
                     </div>
                 )}
             >
-                <div className={cx('search')}>
-                    <input
-                        ref={inputRef}
-                        placeholder='Tìm kiếm'
-                        spellCheck={false}
-                        value={searchValue}
-                        onChange={handleChange}
-                    />
-                    {searchValue && (
-                        <button className={cx('clear-btn')} onClick={handleClear}>
-                            <MdOutlineClear size={14} />
-                        </button>
-                    )}
-
-                    <button className={cx('search-btn')} onClick={handleSubmit}>
-                        <FiSearch size={20} />
-                    </button>
-                </div>
+                <Input
+                    className={cx('search-input')}
+                    placeholder='Tìm kiếm'
+                    spellCheck={false}
+                    rightIcon={<FiSearch size={20} />}
+                />
             </HeadlessTippy>
         </div>
     );
