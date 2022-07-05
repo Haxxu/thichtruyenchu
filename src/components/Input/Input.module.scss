@@ -11,6 +11,14 @@
     -moz-box-shadow: 0 0 0 0.1rem rgba(183, 138, 40, 0.25);
     box-shadow: 0 0 0 0.1rem rgba(183, 138, 40, 0.25);
 
+    &.grayBg {
+        background-color: #f7f7f7;
+
+        input {
+            background-color: #f7f7f7;
+        }
+    }
+
     input {
         flex: 1;
         padding: 6px 10px 6px 24px;

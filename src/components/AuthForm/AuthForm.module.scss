@@ -1,0 +1,71 @@
+.wrapper {
+    width: 500px;
+    min-height: 430px;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.close-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    top: 0;
+    right: 0;
+}
+
+.close {
+    cursor: pointer;
+
+    path {
+        stroke: var(--ultra-light-text-color);
+    }
+
+    &:hover path {
+        stroke: var(--hover-text-color);
+    }
+}
+
+.auth-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login,
+.register {
+    font-size: 2.4rem;
+    font-weight: 600;
+    padding: 16px;
+    color: var(--ultra-light-text-color);
+    cursor: pointer;
+
+    &.active {
+        color: var(--text-color);
+        cursor: default;
+    }
+}
+
+.body {
+    padding: 0 80px 24px;
+
+    label {
+        display: flex;
+        font-size: 1.5rem;
+        color: var(--text-color);
+    }
+}
+
+.form-inline {
+    margin: 16px 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-action {
+    color: var(--hover-text-color);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--text-color);
+    }
+}

@@ -7,7 +7,7 @@ import styles from './Input.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Input({ placeholder, rightIcon, ...props }) {
+function Input({ placeholder, rightIcon, grayBg, ...props }) {
     const [inputValue, setInputValue] = useState('');
 
     const inputRef = useRef();
@@ -26,7 +26,7 @@ function Input({ placeholder, rightIcon, ...props }) {
     };
 
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', { grayBg })}>
             <input value={inputValue} ref={inputRef} placeholder={placeholder} onChange={handleChange} {...props} />
             {inputValue && (
                 <button className={cx('clear-btn')} onClick={handleClear}>

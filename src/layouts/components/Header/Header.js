@@ -1,9 +1,11 @@
 import classNames from 'classnames/bind';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Container, Row, Col } from 'react-grid-system';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { GrUploadOption } from 'react-icons/gr';
+import Modal from 'react-modal';
 import 'tippy.js/dist/tippy.css';
 
 import config from '~/config';
@@ -11,9 +13,27 @@ import images from '~/assets/images';
 import Search from '~/layouts/components/Search';
 import Image from '~/components/Image';
 import { PopperWrapper } from '~/components/Popper';
+import AuthForm from '~/components/AuthForm';
 import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
+
+const customAuthModalStyles = {
+    overlay: {
+        zIndex: 10,
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    },
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        padding: 0,
+        transform: 'translate(-50%, -50%)',
+        borderRadius: '10px',
+    },
+};
 
 const genresMenu = [
     {
@@ -93,7 +113,29 @@ const rankingMenu = [
     },
 ];
 
+Modal.setAppElement(document.getElementById('root'));
+
 function Header() {
+    const [authModalIsOpen, setAuthModalIsOpen] = useState(false);
+    const [loginForm, setLoginForm] = useState(false);
+    const [registerForm, setRegisterForm] = useState(false);
+
+    function openLoginModal() {
+        setAuthModalIsOpen(true);
+        setLoginForm(true);
+    }
+
+    function openRegisterModal() {
+        setAuthModalIsOpen(true);
+        setRegisterForm(true);
+    }
+
+    function closeAuthModal() {
+        setAuthModalIsOpen(false);
+        setLoginForm(false);
+        setRegisterForm(false);
+    }
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -161,8 +203,22 @@ function Header() {
                         <GrUploadOption size={13} className={cx('action-upload-icon')} />
                         <Link to={config.routes.upload}>Đăng truyện</Link>
                     </div>
-                    <div className={cx('action-login', 'action')}>Đăng nhập</div>
-                    <div className={cx('action-register', 'action')}>Đăng ký</div>
+                    <div onClick={openLoginModal} className={cx('action-login', 'action')}>
+                        Đăng nhập
+                    </div>
+                    <div onClick={openRegisterModal} className={cx('action-register', 'action')}>
+                        Đăng ký
+                    </div>
+                    <Modal
+                        isOpen={authModalIsOpen}
+                        onRequestClose={closeAuthModal}
+                        style={customAuthModalStyles}
+                        contentLabel='Example Modal'
+                    >
+                        {/* <AuthForm close={closeAuthModal} register /> */}
+                        {loginForm && <AuthForm close={closeAuthModal} login />}
+                        {registerForm && <AuthForm close={closeAuthModal} register />}
+                    </Modal>
                 </div>
             </div>
         </header>
