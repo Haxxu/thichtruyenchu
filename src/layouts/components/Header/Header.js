@@ -215,7 +215,6 @@ function Header() {
                         style={customAuthModalStyles}
                         contentLabel='Example Modal'
                     >
-                        {/* <AuthForm close={closeAuthModal} register /> */}
                         {loginForm && <AuthForm close={closeAuthModal} login />}
                         {registerForm && <AuthForm close={closeAuthModal} register />}
                     </Modal>

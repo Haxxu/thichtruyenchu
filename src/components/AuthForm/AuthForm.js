@@ -1,8 +1,10 @@
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { GrFormClose } from 'react-icons/gr';
 
 import Input from '~/components/Input';
+import Button from '~/components/Button';
 import styles from './AuthForm.module.scss';
 
 const cx = classNames.bind(styles);
@@ -53,6 +55,22 @@ function AuthForm({ close = false, login = false, register = false }) {
                                 <div className={cx('form-action')}>Quên mật khẩu?</div>
                             </div>
                             <Input placeholder='Nhập mật khẩu' grayBg />
+                            <div
+                                className={cx('form-inline')}
+                                style={{
+                                    alignItems: 'center',
+                                    justifyContent: 'flex-start',
+                                    color: 'var(--text-color)',
+                                }}
+                            >
+                                <input type='checkbox' />
+                                <span style={{ marginLeft: '5px' }}>Ghi nhớ mật khẩu</span>
+                            </div>
+                            <div className={cx('form-inline')}>
+                                <Button primary rounded wFull>
+                                    Đăng nhập
+                                </Button>
+                            </div>
                         </form>
                     )}
                     {isRegister && (
@@ -69,6 +87,11 @@ function AuthForm({ close = false, login = false, register = false }) {
                                 <label>Nhập lại mật khẩu</label>
                             </div>
                             <Input placeholder='Nhập lại mật khẩu' grayBg />
+                            <div className={cx('form-inline')}>
+                                <Button primary rounded wFull>
+                                    Đăng ký
+                                </Button>
+                            </div>
                         </form>
                     )}
                 </div>
@@ -76,5 +99,11 @@ function AuthForm({ close = false, login = false, register = false }) {
         </div>
     );
 }
+
+AuthForm.propTypes = {
+    close: PropTypes.func,
+    login: PropTypes.bool,
+    register: PropTypes.bool,
+};
 
 export default AuthForm;
